@@ -3,16 +3,23 @@ package 课程表;
 import java.util.Calendar;
 
 public class Course_Table {
-	private String semester;//学期
-	private int weeks=16;//学期周数
+	private String id;//学号，如20170060217
+	private String semester;//学期,如2019-2020-1
+	private int weeks=16;//周数
 	private Calendar date_start;//开学日期
 	private int week_now;//当前周数
-	private int lesson_max=14;//课表最大节数
-	private String lesson_begintime[];//每节上课开始时间
-	private int lesson_time=40;//一节课上课持续时间
-	private int day_now;//现在星期几
-	private int lesson_now;//现在第几节
+	private int day_now;//当前星期几
+	private int lesson_now;//当前第几节	
+	private String lesson_begintime[][]= {
+			{"8:00","8:40"},{"8:45","9:25"},{"9:40","10:20"},{"10:25","11:05"},
+			{"11:10","11:50"},{"13:30","14:10"},{"14:15","14:55"},{"15:10","15:50"},
+			{"15:55","16:35"},{"16:40","17:20"},{"18:30","19:10"},{"19:15","19:55"},
+			{"20:05","20:45"},{"20:50","21:30"}
+	};//每节课上课和下课时间
 	
+	private int lesson_max=14;//课表最大节数
+	private int lesson_time=40;//一节课上课持续时间
+		
 	public String getSemester() {
 		return semester;
 	}
@@ -43,12 +50,6 @@ public class Course_Table {
 	public void setLesson_max(int lesson_max) {
 		this.lesson_max = lesson_max;
 	}
-	public String[] getLesson_begintime() {
-		return lesson_begintime;
-	}
-	public void setLesson_begintime(String[] lesson_begintime) {
-		this.lesson_begintime = lesson_begintime;
-	}
 	public int getLesson_time() {
 		return lesson_time;
 	}
@@ -66,6 +67,18 @@ public class Course_Table {
 	}
 	public void setLesson_now(int lesson_now) {
 		this.lesson_now = lesson_now;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String[][] getLesson_begintime() {
+		return lesson_begintime;
+	}
+	public void setLesson_begintime(String lesson_begintime[][]) {
+		this.lesson_begintime = lesson_begintime;
 	}
 	
 	
