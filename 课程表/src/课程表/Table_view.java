@@ -13,61 +13,15 @@ import javax.swing.plaf.FontUIResource;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 public class Table_view {
-	public int width=1400;
+	public int width=1300;
 	public int height=900;
 	public JFrame frame;
-	public Box hBox1;
-	public JPanel panel,week,day,course,course_num;
 	public JMenuBar menuBar;
 	public JTable table;
 	public JScrollPane scrollpane;
-	public JTable getTable() {
-		return table;
-	}
-	public void initTable() {	
-		// 表头（列名）
-        String[] columnNames = {"序号", "姓名", "语文", "数学", "英语", "总分"};
-        // 表格所有行数据
-        Object[][] rowData = {
-                {1, "张三", 80, 80, 80, 240},
-                {2, "John", 70, 80, 90, 240},
-                {3, "Sue", 70, 70, 70, 210},
-                {4, "Jane", 80, 70, 60, 210},
-                {5, "Joe_05", 80, 70, 60, 210},
-                {6, "Joe_06", 80, 70, 60, 210},
-                {7, "Joe_07", 80, 70, 60, 210},
-                {8, "Joe_08", 80, 70, 60, 210},
-                {9, "Joe_09", 80, 70, 60, 210},
-                {10, "Joe_10", 80, 70, 60, 210},
-                {11, "Joe_11", 80, 70, 60, 210},
-                {12, "Joe_12", 80, 70, 60, 210},
-                {13, "Joe_13", 80, 70, 60, 210},
-                {14, "Joe_14", 80, 70, 60, 210},
-                {15, "Joe_15", 80, 70, 60, 210},
-                {16, "Joe_16", 80, 70, 60, 210},
-                {17, "Joe_17", 80, 70, 60, 210},
-                {18, "Joe_18", 80, 70, 60, 210},
-                {19, "Joe_19", 80, 70, 60, 210},
-                {20, "Joe_20", 80, 70, 60, 210}
-        };
-        this.table=new JTable(rowData, columnNames);
-     // 创建单元格渲染器
-        MyTableCellRenderer renderer = new MyTableCellRenderer();
-        renderer.setColor_cell();
-     // 遍历表格的每一列，分别给每一列设置单元格渲染器
-        for (int i = 0; i < columnNames.length; i++) {
-            // 根据 列名 获取 表格列
-            TableColumn tableColumn = this.table.getColumn(columnNames[i]);
-            // 设置 表格列 的 单元格渲染器
-            tableColumn.setCellRenderer(renderer);
-        }
-        this.table.setRowHeight(50);
-        //this.table.setShowVerticalLines(false);
-        //this.table.setShowHorizontalLines(false);
-        this.table.setShowGrid(false);
-        this.table.setPreferredScrollableViewportSize(new Dimension(800, 900));
-        scrollpane = new JScrollPane(this.table);
-	}
+	
+	public JPanel panel,week,day,course,course_num;	
+	
 	
 	public JFrame getFrame() {
 		return frame;
@@ -87,90 +41,14 @@ public class Table_view {
 		this.frame.setResizable(false);
 		this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
-	public JPanel getPanel() {
-		return panel;
-	}
-	public void setPanel(JPanel panel) {
-		this.panel = panel;
-		GridBagLayout gridBag = new GridBagLayout();    // 布局管理器
-        GridBagConstraints c = null;                    // 约束
-        this.panel = new JPanel(gridBag);
-        week=new JPanel();
-        course_num=new JPanel();
-        course=new JPanel();
-        
-	}
 	
-	public JPanel getCourse() {
-		return course;
-	}
-	public void setCourse(JPanel course) {
-		this.course = course;
-	}
 	public JMenuBar getMenuBar() {
 		return menuBar;
 	}
 	public void initMenuBar() {
-		this.menuBar=new JMenuBar();		
-        JMenu menu1 = new JMenu("文件");
-        JMenu menu2 = new JMenu("查询");
-        JMenu menu3 = new JMenu("课程");
-        JMenu menu4 = new JMenu("提醒");
-        JMenu menu5 = new JMenu("关于");
-        // 一级菜单添加到菜单栏
-        this.menuBar.add(menu1);
-        this.menuBar.add(menu2);
-        this.menuBar.add(menu3);
-        this.menuBar.add(menu4);
-        this.menuBar.add(menu5);
-        //一级菜单的子菜单
-        JMenuItem menuItem1_1 = new JMenuItem("新建课表");
-        JMenuItem menuItem1_2 = new JMenuItem("手动导入");
-        JMenuItem menuItem1_3 = new JMenuItem("自动导入");
-        JMenuItem menuItem1_4 = new JMenuItem("删除课表");
-        
-        // 子菜单添加到一级菜单
-        menu1.add(menuItem1_1);
-        menu1.add(menuItem1_2);
-        menu1.add(menuItem1_3);
-        menu1.add(menuItem1_4);
-        JMenuItem menuItem2_1 = new JMenuItem("按周查询");
-        JMenuItem menuItem2_2 = new JMenuItem("按学期查询");
-        
-        menu2.add(menuItem2_1);
-        menu2.add(menuItem2_2);
-        JMenuItem menuItem3_1 = new JMenuItem("添加课程");
-        JMenuItem menuItem3_2 = new JMenuItem("修改课程");
-        JMenuItem menuItem3_3 = new JMenuItem("删除课程");
-        
-        menu3.add(menuItem3_1);
-        menu3.add(menuItem3_2);
-        menu3.add(menuItem3_3);
-        
+		this.menuBar=new JMenuBar();		  
 	}
 	
-	public Box gethBox1() {
-		return hBox1;
-	}
-	public void sethBox1(Box hBox1) {
-		this.hBox1 = hBox1;
-		GridLayout layout = new GridLayout(15, 1);
-		this.hBox1 = Box.createHorizontalBox();
-		this.course_num=new JPanel(layout);
-		String week[]= {"周一","周二","周三","周四","周五","周六","周日"};
-		//第1列
-		course_num.add(new JLabel("7月"));		
-		for(int i=1;i<=14;i++) {
-			course_num.add(new JLabel(String.valueOf(i)));
-		}
-		this.hBox1.add(course_num);
-		//后面7列
-		for(int i=0;i<7;i++) {
-			this.course=new JPanel(layout);
-			this.course.add(new JLabel(week[i]));
-			this.hBox1.add(this.course);
-		}
-	}
 	public void show() {
 		frame.setJMenuBar(menuBar);				
 		frame.setContentPane(scrollpane);
@@ -197,7 +75,22 @@ public class Table_view {
 }
 class MyTableCellRenderer extends DefaultTableCellRenderer {
 	public int color_cell[][];//需染色的单元格
-	public void setColor_cell() {
+	public void setColor_cell(Course course[]) {
+		int row=2+14*3;
+		int column=1+7;
+		color_cell=new int[row][column];
+		
+		for(int k=0;k<course.length;k++) {//遍历当周课程
+			int begin=course[k].getBegin_lesson();
+			int end=course[k].getEnd_lesson();
+			for(int i=begin;i<=end;i++) {
+				int line=i*3-2;//行数和节数的关系
+				int j=course[k].getDay();
+				color_cell[line][j]=(k%4)+1;
+				color_cell[line+1][j]=(k%4)+1;
+				color_cell[line+2][j]=(k%4)+1;
+			}
+		}	
 		
 	}
     /**
@@ -206,9 +99,19 @@ class MyTableCellRenderer extends DefaultTableCellRenderer {
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         // 偶数行背景设置为白色,奇数行背景设置为灰色
-        if (column == 1 && (row%4==1||row%4==2)) {
+        if (color_cell[row][column]==1) {
             setBackground(Color.LIGHT_GRAY);
-        } else {
+        }
+        else if (color_cell[row][column]==2) {
+            setBackground(Color.YELLOW);
+        }
+        else if (color_cell[row][column]==3) {
+            setBackground(Color.GREEN);
+        }
+        else if (color_cell[row][column]==4) {
+            setBackground(Color.ORANGE);
+        }
+        else {
             setBackground(Color.WHITE);
         }
         //文字居中对齐
