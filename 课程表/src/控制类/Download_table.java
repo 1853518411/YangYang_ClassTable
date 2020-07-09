@@ -30,7 +30,7 @@ public class Download_table {
 	public Download_table(String id,String semester,CookieStore cookieStore) {
 		String s[]=semester.split("_");
 		this.semester=s[0]+"-"+s[1]+"-"+s[2];
-		this.url="D:\\Study\\软件工程\\课程设计\\阳阳课程表\\课程表EXCEL文件\\"+id+"-"+this.semester+".xls";		
+		this.url="./"+id+"-"+this.semester+".xls";		
 		this.cookieStore=cookieStore;
 	}
 	public String download() {
@@ -93,15 +93,6 @@ public class Download_table {
 	    
 	    return this.url;
 	}
-		public static void main(String[] args) {
-			String savepath="D:\\Study\\软件工程\\课程设计\\阳阳课程表\\课程表EXCEL文件\\ClassTable.xls";
-			String semester="2019-2020-2";
-			String username="20170060217";
-			String password="?czs1519";
-			Login l=new Login(username,password);
-			CookieStore cookieStore=l.login();
-			Download_table d=new Download_table(savepath,semester,cookieStore);
-			d.download();
-		}
+		
 	
 }

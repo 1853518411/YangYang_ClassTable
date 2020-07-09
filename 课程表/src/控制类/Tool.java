@@ -6,7 +6,7 @@ public class Tool {
 	//连接数据库
 	public static Connection connectDB() {
 		Connection conn=null;
-		String sql = "jdbc:sqlite:D:\\Study\\软件工程\\课程设计\\阳阳课程表\\数据\\test1.db";
+		String sql = "jdbc:sqlite:..\\数据\\test1.db";
 		String driverClass="org.sqlite.JDBC";
 		try {
 			Class.forName(driverClass);

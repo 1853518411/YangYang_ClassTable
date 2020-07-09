@@ -877,11 +877,12 @@ public class Table_control {
 	}
 	public Table_control() {		
 		//导入course_table
-		this.course_table=new Course_Table();
-		//赋值
+		this.course_table=Tool.readCourse_Table()[0];
+		/*
 		this.course_table.setDate_start("2020_3_1");
 		this.course_table.setId("20170060217");
 		this.course_table.setSemester("2019_2020_2");
+		*/
 	}
 	public static void main(String[] args) {
 		Table_control c=new Table_control();
